@@ -38,18 +38,18 @@ class MemberRepositoryTest {
         assertThat(findMember).isEqualTo(member);
     }
 
-    @Test
-    @Transactional
-    @TestDescription("test member api")
-    public void testMemberApi() throws Exception{
-        String username = "memberB";
-        Member member=Member.builder()
-                .username(username)
-                .build();
-        //UserService -- 1. create account
-
-
-    }
+//    @Test
+//    @Transactional
+//    @TestDescription("test member api")
+//    public void testMemberApi() throws Exception{
+//        String username = "memberB";
+//        Member member=Member.builder()
+//                .username(username)
+//                .build();
+//        //UserService -- 1. create account
+//
+//
+//    }
 
 
 }
