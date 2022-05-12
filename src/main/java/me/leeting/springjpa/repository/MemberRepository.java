@@ -1,5 +1,6 @@
 package me.leeting.springjpa.repository;
 
+import lombok.RequiredArgsConstructor;
 import me.leeting.springjpa.domain.Member;
 import org.springframework.stereotype.Repository;
 
@@ -8,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager em;//injection
+    private final EntityManager em;//injection
 
     public void save(Member member){
         em.persist(member);
