@@ -1,5 +1,6 @@
 package me.leeting.springjpa;
 
+import me.leeting.springjpa.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
