@@ -22,10 +22,10 @@ public class Order {
     @JoinColumn(name="Member_id")
     private Member member;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order" , cascade = CascadeType.ALL)
     private List<OrderItem> orderItems =new ArrayList<>();
 
-    @OneToOne(fetch = LAZY )
+    @OneToOne(fetch = LAZY ,cascade =CascadeType.ALL)
     @JoinColumn(name= "delivery_id")
     private Delivery delivery;
 
@@ -33,6 +33,25 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
+
+    //연관관계 메서드 setMember,addOrderItem,setDelivery
+    private void setMember(Member member){
+        //Member -> List orders()
+        this.member=member;
+        member.getOrders().add(this);
+    }
+
+    private void addOrderItem(OrderItem orderItem){
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    private void setDelivery(Delivery delivery)
+    {
+        this.delivery=delivery;
+        delivery.setOrder(this);
+    }
+
 
 
 }
