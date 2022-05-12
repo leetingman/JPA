@@ -59,6 +59,12 @@
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
+		<!--p6spy dependency -->
+		<dependency>
+			<groupId>com.github.gavlyukovskiy</groupId>
+			<artifactId>p6spy-spring-boot-starter</artifactId>
+			<version>1.8.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
