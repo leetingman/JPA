@@ -45,8 +45,14 @@ public class OrderService {
     }
 
     //cancel
+    @Transactional
+    public void cancelOrder(Long orderId){
+        Order order = orderRepository.findOne(orderId);
+
+        order.cancel();
+
+    }
 
     //find
-
-
+//domain model pattern
 }

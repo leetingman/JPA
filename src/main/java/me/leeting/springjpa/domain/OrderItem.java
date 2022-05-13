@@ -1,14 +1,16 @@
 package me.leeting.springjpa.domain;
 
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.leeting.springjpa.domain.item.Item;
 
 import javax.persistence.*;
 
 @Entity
-@Getter @Setter
+@Getter @Setter @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
     @Id @GeneratedValue
     @Column(name="order_item_id")
@@ -24,7 +26,8 @@ public class OrderItem {
     private int orderPrice;
     private int count;
 
-    public static OrderItem createOrderItem(Item item ,int orderPrice,int count){
+
+    public static OrderItem createOrderItem(Item item , int orderPrice, int count){
         OrderItem orderItem=new OrderItem();
         orderItem.setItem(item);
         orderItem.setOrderPrice(orderPrice);
