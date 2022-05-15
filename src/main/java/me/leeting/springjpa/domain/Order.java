@@ -17,7 +17,7 @@ import static javax.persistence.FetchType.LAZY;
 @Getter @Setter @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_id")
     private Long id;
 
@@ -64,7 +64,6 @@ public class Order {
         order.setStatus(OrderStatus.ORDER);
         // java current time
         order.setOrderDate(LocalDateTime.now());
-
         return order;
     }
 

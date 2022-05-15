@@ -9,7 +9,8 @@ import javax.persistence.EntityManager;
 @Repository
 @RequiredArgsConstructor
 public class OrderRepository {
-    private static EntityManager em;
+
+    private final EntityManager em;
 
     public void save(Order order){
         em.persist(order);
