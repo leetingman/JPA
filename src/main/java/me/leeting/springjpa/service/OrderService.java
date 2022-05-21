@@ -56,3 +56,5 @@ public class OrderService {
     //find
 //domain model pattern
 }
+
+//Service 계층에서 엔티티 의존
