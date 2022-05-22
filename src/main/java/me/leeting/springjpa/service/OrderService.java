@@ -10,8 +10,11 @@ import me.leeting.springjpa.domain.item.Item;
 import me.leeting.springjpa.repository.ItemRepository;
 import me.leeting.springjpa.repository.MemberRepository;
 import me.leeting.springjpa.repository.OrderRepository;
+import me.leeting.springjpa.repository.OrderSearch;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -54,6 +57,10 @@ public class OrderService {
     }
 
     //find
+    public List<Order> findOrders(OrderSearch orderSearch){
+        return orderRepository.findAllByString(orderSearch);
+    }
+
 //domain model pattern
 }
 
