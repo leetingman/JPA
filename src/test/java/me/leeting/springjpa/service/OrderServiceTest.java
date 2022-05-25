@@ -13,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -88,6 +89,21 @@ public class OrderServiceTest {
         assertEquals("Expected status CANCEL",OrderStatus.CANCEL,getOrder.getStatus());
         assertEquals("stock",10,book.getStockQuantity());
 
+    }
+
+    @Test
+    public void OrderAPITest() throws Exception{
+        //Given
+        MockMvc mock =createRequest();
+
+
+        //when
+
+        //then
+    }
+
+    private MockMvc createRequest() {
+        return;
     }
 
 
