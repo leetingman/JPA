@@ -19,7 +19,7 @@ import java.util.List;
 public class ItemController {
     private final ItemService itemService;
 
-    @GetMapping("/item/new")
+    @GetMapping("/items/new")
     public String createForm(Model model){
         model.addAttribute("form",new BookForm());
         return "items/createItemForm";
@@ -73,7 +73,7 @@ public class ItemController {
 //
 //        itemService.saveItem(book);
 
-        itemService.updateItem(itemId,form.getName(),form.getPrice(),form.getStockQuantity())
+        itemService.updateItem(itemId,form.getName(),form.getPrice(),form.getStockQuantity());
 
 
         return "redirect:/items";

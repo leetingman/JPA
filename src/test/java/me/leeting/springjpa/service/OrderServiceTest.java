@@ -91,20 +91,6 @@ public class OrderServiceTest {
 
     }
 
-    @Test
-    public void OrderAPITest() throws Exception{
-        //Given
-        MockMvc mock =createRequest();
-
-
-        //when
-
-        //then
-    }
-
-    private MockMvc createRequest() {
-        return;
-    }
 
 
     private Book createBook(String name, int price, int stockQuantity) {
