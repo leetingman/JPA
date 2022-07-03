@@ -22,9 +22,15 @@ import java.util.List;
 public class OrderSimpleAPiController {
     private final OrderRepository orderRepository;
 
-    @GetMapping("/api/v1/simple-orders")
+    @GetMapping("/api/v1/sample-orders")
     public List<Order>ordersV1(){
         List<Order> all= orderRepository.findAllByString(new OrderSearch());
+        for (Order order : all) {
+            order .getMember().getName();//LAZY force init
+            order.getDelivery().getAddress();
+        }
         return all;
+        //Hibernate5
     }
+
 }
