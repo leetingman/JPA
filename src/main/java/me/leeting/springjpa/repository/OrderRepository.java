@@ -95,4 +95,15 @@ public class OrderRepository {
         ).getResultList();
         return resultList;
     }
+
+    public List<OrderSimpleQueryDto> findOrderDtos(){
+        List<OrderSimpleQueryDto> result = em.createQuery(
+                "select new me.leeting.springjpa.repository.OrderSimpleQueryDto(o.id,m.name,o.orderDate,o.status,d.address)" +
+                " from Order o" +
+                " join o.member m" +
+                " join o.delivery d", OrderSimpleQueryDto.class
+        ).getResultList();
+        return result;
+
+    }
 }

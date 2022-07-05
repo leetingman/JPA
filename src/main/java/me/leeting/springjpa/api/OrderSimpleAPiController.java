@@ -8,6 +8,7 @@ import me.leeting.springjpa.domain.Order;
 import me.leeting.springjpa.domain.OrderStatus;
 import me.leeting.springjpa.repository.OrderRepository;
 import me.leeting.springjpa.repository.OrderSearch;
+import me.leeting.springjpa.repository.OrderSimpleQueryDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -54,6 +55,11 @@ public class OrderSimpleAPiController {
         List<SimpleOrderDto> result = orders.stream().map(o -> new SimpleOrderDto(o))
                 .collect(Collectors.toList());
         return result;
+    }
+
+    @GetMapping ("/api/v4/simple-orders")
+    public List<OrderSimpleQueryDto> ordersV4(){
+        return orderRepository.findOrderDtos();
     }
 
     @Data
