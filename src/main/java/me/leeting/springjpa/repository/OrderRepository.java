@@ -2,6 +2,7 @@ package me.leeting.springjpa.repository;
 
 import lombok.RequiredArgsConstructor;
 import me.leeting.springjpa.domain.Order;
+import me.leeting.springjpa.repository.order.simplequery.OrderSimpleQueryDto;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -98,7 +99,7 @@ public class OrderRepository {
 
     public List<OrderSimpleQueryDto> findOrderDtos(){
         List<OrderSimpleQueryDto> result = em.createQuery(
-                "select new me.leeting.springjpa.repository.OrderSimpleQueryDto(o.id,m.name,o.orderDate,o.status,d.address)" +
+                "select new me.leeting.springjpa.repository.order.simplequery.OrderSimpleQueryDto(o.id,m.name,o.orderDate,o.status,d.address)" +
                 " from Order o" +
                 " join o.member m" +
                 " join o.delivery d", OrderSimpleQueryDto.class

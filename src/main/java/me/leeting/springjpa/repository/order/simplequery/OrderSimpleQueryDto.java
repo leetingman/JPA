@@ -1,4 +1,4 @@
-package me.leeting.springjpa.repository;
+package me.leeting.springjpa.repository.order.simplequery;
 
 import lombok.Data;
 import me.leeting.springjpa.domain.Address;

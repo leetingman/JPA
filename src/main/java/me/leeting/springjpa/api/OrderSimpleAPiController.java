@@ -8,7 +8,8 @@ import me.leeting.springjpa.domain.Order;
 import me.leeting.springjpa.domain.OrderStatus;
 import me.leeting.springjpa.repository.OrderRepository;
 import me.leeting.springjpa.repository.OrderSearch;
-import me.leeting.springjpa.repository.OrderSimpleQueryDto;
+import me.leeting.springjpa.repository.order.simplequery.OrderSimpleQueryDto;
+import me.leeting.springjpa.repository.order.simplequery.OrderSimpleQueryRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderSimpleAPiController {
     private final OrderRepository orderRepository;
-
+    private final OrderSimpleQueryRepository orderSimpleQueryRepository;
     @GetMapping("/api/v1/sample-orders")
     public List<Order>ordersV1(){
         List<Order> all= orderRepository.findAllByString(new OrderSearch());
@@ -59,7 +60,7 @@ public class OrderSimpleAPiController {
 
     @GetMapping ("/api/v4/simple-orders")
     public List<OrderSimpleQueryDto> ordersV4(){
-        return orderRepository.findOrderDtos();
+        return orderSimpleQueryRepository.findOrderDtos();
     }
 
     @Data
